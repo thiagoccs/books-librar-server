@@ -25,9 +25,9 @@ const getLivrosById = (req, res) => {
 
 const postLivro = (req, res) => {
   try {
-    const { titulo, imagem, autor, foto, ano } = req.body;
+    const { titulo,  autor, ano } = req.body;
 
-    if (!titulo || !imagem || !autor || !foto || !ano) {
+    if (!titulo || !autor || !ano) {
       return res.status(422).send({ message: 'os campos: "titulo, imagem, autor, foto, ano" são obrigatórios' });
     }
 
@@ -90,7 +90,7 @@ const deleteLivros = (req, res) => {
 
       if (result.status !== 200) return res.status(result.status).send({ message: result.message });
 
-      return res.status(200).send({ message: 'Livro apagado com sucesso' });
+      return res.status(result.status).send({ message: result.message });
     }
 
     return res.status(422).send({ message: 'Id deve ser um número' });

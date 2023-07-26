@@ -64,7 +64,7 @@ function deleteLivros(id) {
   livros.splice(indiceParaDelecao, 1)
 
   fs.writeFileSync('livros.json', JSON.stringify(livros));
-  return {status: 200, message: `não existe livro com id: ${id}`};
+  return {status: 200, message: 'Livro apagado com sucesso'};
 }
 
 module.exports = {
