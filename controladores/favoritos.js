@@ -31,6 +31,7 @@ function postFavoritos(req, res) {
   try {
     const { id } = req.params;
     const result = servicos.postFavoritos(id);
+    console.log(result);
 
     if (result.status !== 200) return res.status(result.status).send({ message: result.message });
 
